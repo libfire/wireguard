@@ -12,7 +12,7 @@ DNS = 8.8.8.8
 
 [Peer]
 PublicKey = <peer public key>
-AllowedIPs = 0.0.0.0/0
+AllowedIPs = 0.0.0.0/1,128.0.0.0/1
 Endpoint = <peer endpoint>
 PersistentKeepalive = 25
 ```

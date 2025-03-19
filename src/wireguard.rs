@@ -171,7 +171,6 @@ impl WireGuard {
                     .ok_or(anyhow!("Get bind ip failed"))?;
 
                 let addr = if_index_to_addr(if_index)?;
-                println!("Bind address: {addr}");
                 addr
             };
             Arc::new(
@@ -236,8 +235,7 @@ impl WireGuard {
                 let route = Route::new(destination, prefix)
                     .with_if_index(if_index)
                     .with_if_name(name.clone())
-                    .with_gateway(interface_address)
-                    .with_metric(0);
+                    .with_gateway(interface_address);
                 route_manager
                     .add(&route)
                     .map_err(|e| anyhow!("Add route failed: {route}: {e}"))?;
